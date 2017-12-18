@@ -32,6 +32,8 @@ REST-based API built using:
 
 **Response**
 
+- Response format is json
+
 | Name | Description |
 | ------ | ------ |
 | airline | Name of Airline |
