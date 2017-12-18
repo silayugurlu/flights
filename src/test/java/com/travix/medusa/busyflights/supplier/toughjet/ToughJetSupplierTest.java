@@ -5,6 +5,7 @@ import com.travix.medusa.busyflights.domain.toughjet.ToughJetRequest;
 import com.travix.medusa.busyflights.domain.toughjet.ToughJetResponse;
 import com.travix.medusa.busyflights.dto.FlightsInput;
 import com.travix.medusa.busyflights.dto.FlightsOutput;
+import com.travix.medusa.busyflights.util.DateUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -69,6 +72,6 @@ public class ToughJetSupplierTest {
         assertThat(list.size()).isEqualTo(1);
         assertThat(list.get(0).getAirline()).isEqualTo("thy");
         assertThat(list.get(0).getAmount()).isEqualTo(22.97);
-        assertThat(list.get(0).getArrivalDate()).isEqualTo("2018-12-03T12:15:30");
+        assertThat(list.get(0).getArrivalDate()).isEqualTo(DateUtil.formatDateTime(DateTimeFormatter.ISO_INSTANT.withZone(ZoneId.systemDefault()), DateTimeFormatter.ISO_DATE_TIME, "2018-12-03T10:15:30Z"));
     }
 }

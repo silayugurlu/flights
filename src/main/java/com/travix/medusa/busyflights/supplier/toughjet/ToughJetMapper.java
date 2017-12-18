@@ -48,8 +48,8 @@ public class ToughJetMapper extends ConfigurableMapper {
                         double price = toughJetResponse.getBasePrice() - discount + toughJetResponse.getTax();
                         flightsOutput.setAmount(price);
                         flightsOutput.setSupplier(SUPPLIER);
-                        flightsOutput.setDepartureDate(DateUtil.formatDateTime(DateTimeFormatter.ISO_INSTANT.withZone(ZoneId.systemDefault()), DateTimeFormatter.ISO_DATE_TIME, toughJetResponse.getOutboundDateTime()));
-                        flightsOutput.setArrivalDate(DateUtil.formatDateTime(DateTimeFormatter.ISO_INSTANT.withZone(ZoneId.systemDefault()), DateTimeFormatter.ISO_DATE_TIME, toughJetResponse.getInboundDateTime()));
+                        flightsOutput.setDepartureDate(DateUtil.formatDateTime(DateTimeFormatter.ISO_INSTANT.withZone(ZoneId.systemDefault()), DateTimeFormatter.ISO_DATE_TIME.withZone(ZoneId.systemDefault()), toughJetResponse.getOutboundDateTime()));
+                        flightsOutput.setArrivalDate(DateUtil.formatDateTime(DateTimeFormatter.ISO_INSTANT.withZone(ZoneId.systemDefault()), DateTimeFormatter.ISO_DATE_TIME.withZone(ZoneId.systemDefault()), toughJetResponse.getInboundDateTime()));
                     }
                 })
                 .register();
