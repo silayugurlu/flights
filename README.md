@@ -1,4 +1,4 @@
-**Travix - Problem to be solved**
+**Travix - Interview Test**
 
 **Background:**
 
@@ -6,7 +6,7 @@ BusyFlights is a flights search solution which aggregates flight results initial
 
 **Solution**
 
-REST-based API built using:
+REST API application using:
 
 - Java 8
 - Spring Boot
